@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Martian+Mono:wght@700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Martian Mono', monospace;
+}
+
+:root {
+    --index: calc(1vh + 1vw);
+    --transition: 1s cubic-bezier(.05, .5, 0, 1);
+}
+
+body {
+    background: #000;
+    color: #fff;
+
+    .layers {
+        perspective: 1000px;
+        overflow: hidden;
+
+        .layers__container {
+            height: 100vh;
+            transform-style: preserve-3d;
+            transform: rotateY(var(--move-x)) rotateX(var(--move-y));
+            will-change: transform;
+            transition: transform var(--transition);
+
+            .layer__item {
+                position: absolute;
+                inset: -5vw;
+                background-size: cover;
+                background-position: center;
+            }
+
+            .layer-1 {
+                transform: translateZ(-72px) scale(1.06);
+            }
+
+            .layer-2 {
+                transform: translateZ(117px) scale(0.88);
+            }
+
+            .layer-3 {
+                transform: translateZ(180px) scale(.88);
+            }
+
+            .layer-4 {
+                transform: translateZ(190px) scale(.88);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                h1{
+                    font-size: calc(var(--index) * 3);
+                    text-transform: uppercase;
+                    text-shadow: 4px 1px 8px #000000d4;
+                }
+            }
+
+            .layer-5 {
+                transform: translateZ(300px) scale(0.70);
+            }
+
+            .layer-6 {
+                transform: translateZ(380px) scale(.59);
+            }
+        }
+    }
+}

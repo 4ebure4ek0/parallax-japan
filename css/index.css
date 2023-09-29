@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Martian+Mono:wght@700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Martian Mono", monospace;
+}
+
+:root {
+  --index: calc(1vh + 1vw);
+  --transition: 1s cubic-bezier(.05, .5, 0, 1);
+}
+
+body {
+  background: #000;
+  color: #fff;
+}
+body .layers {
+  perspective: 1000px;
+  overflow: hidden;
+}
+body .layers .layers__container {
+  height: 100vh;
+  transform-style: preserve-3d;
+  transform: rotateY(var(--move-x)) rotateX(var(--move-y));
+  will-change: transform;
+  transition: transform var(--transition);
+}
+body .layers .layers__container .layer__item {
+  position: absolute;
+  inset: -5vw;
+  background-size: cover;
+  background-position: center;
+}
+body .layers .layers__container .layer-1 {
+  transform: translateZ(-72px) scale(1.06);
+}
+body .layers .layers__container .layer-2 {
+  transform: translateZ(117px) scale(0.88);
+}
+body .layers .layers__container .layer-3 {
+  transform: translateZ(180px) scale(0.88);
+}
+body .layers .layers__container .layer-4 {
+  transform: translateZ(190px) scale(0.88);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body .layers .layers__container .layer-4 h1 {
+  font-size: calc(var(--index) * 3);
+  text-transform: uppercase;
+  text-shadow: 4px 1px 8px rgba(0, 0, 0, 0.831372549);
+}
+body .layers .layers__container .layer-5 {
+  transform: translateZ(300px) scale(0.7);
+}
+body .layers .layers__container .layer-6 {
+  transform: translateZ(380px) scale(0.59);
+}
